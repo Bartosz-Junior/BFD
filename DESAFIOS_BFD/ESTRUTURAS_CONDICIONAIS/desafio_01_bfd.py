@@ -12,5 +12,11 @@ senha_usuario = str(input("Senha: ")).lower().strip()
 
 if (login_usuario == "admin" and senha_usuario == "admin123"):
     print("Acesso ao sistema liberado.\nNota salva com sucesso!")
+    if (nota_aluno >= 7):
+        print("Aluno aprovado!")
+    elif (5 <= nota_aluno < 7):
+        print("Recuperação!")
+    else:
+        print("Reprovado!")
 else:
     print("Usuário ou senha incorretos.")
