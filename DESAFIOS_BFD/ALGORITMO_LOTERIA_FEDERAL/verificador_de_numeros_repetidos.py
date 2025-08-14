@@ -13,13 +13,11 @@ quant_unidades = {}
 #Dicionário com a quantidade e chave de cada dezena nas milhares de resultado
 quant_dezenas = {}
 
-
 #Lista com todos os digitos das unidades de cada milhar.
 lista_unidade = []
 
 #Lista de digitos das dezenas
 lista_dezenas = []
-
 
 #Loop for para iterar sobre cada milhar.
 for milhar in resultados_federal_str:
