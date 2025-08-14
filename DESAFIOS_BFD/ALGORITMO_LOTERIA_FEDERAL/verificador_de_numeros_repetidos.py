@@ -10,8 +10,16 @@ resultados_federal_str = {"7133", "9368","4964" ,"2570", "0724" , "5122", "2399"
 #Dicionário com as unidades de cada milhar e suas quantidades
 quant_unidades = {}
 
+#Dicionário com a quantidade e chave de cada dezena nas milhares de resultado
+quant_dezenas = {}
+
+
 #Lista com todos os digitos das unidades de cada milhar.
 lista_unidade = []
+
+#Lista de digitos das dezenas
+lista_dezenas = []
+
 
 #Loop for para iterar sobre cada milhar.
 for milhar in resultados_federal_str:
@@ -38,12 +46,6 @@ print(dicionario_ordem)
 
 #################################################################################################
 '''TRATAMENTO DAS DEZENAS DE ACORDO COM A LISTA DE RESULTADOS DA FEDERAL ACIMA'''
-
-#Dicionário com a quantidade e chave de cada dezena nas milhares de resultado
-quant_dezenas = {}
-
-#Lista de digitos das dezenas
-lista_dezenas = []
 
 for milhar_dez in resultados_federal_str:
 
