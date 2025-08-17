@@ -91,3 +91,17 @@ matriz = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 print(matriz[1][1])
 matriz[2][1] = 10
 print(matriz)
+
+# 10 - Crie um dicionário estoque com:
+#"macã": 10
+#"banana": 5
+#"laranja": 8
+#Faça o seguinte:
+#Adicione "pera" com quantidade 12
+#Remova "banana"
+#Imprima apenas os nomes dos itens (chaves)
+
+estoque = {"Maça" : 10 , "Banana" : 5 , "Laranja" : 8}
+estoque.update({"Pera" : 12})
+estoque.pop("Banana")
+print(estoque.keys())
