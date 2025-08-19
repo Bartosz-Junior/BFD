@@ -1,3 +1,5 @@
+#ESTUDAR ESTE CÓDIGO, REVER CLASSES PYTHON E FUNCÇOES
+
 class MeuIterador:
     def __init__(self, numeros : list[int]):
         self.numeros = numeros
