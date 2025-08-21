@@ -64,3 +64,10 @@ while True:
     if (escolha == 0):
         print("Saindo...")
         break
+
+
+#FALTA COMENTAR
+#TESTAR TRY - EXCEPTION
+#TESTAR SWITCH CASE
+#FALTA DOCUMENTAÇÃO
+#REMOVER AS CONCLUIDAS DA LISTA
