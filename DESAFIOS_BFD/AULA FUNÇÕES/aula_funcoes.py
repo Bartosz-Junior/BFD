@@ -8,7 +8,7 @@ def add_tarefa():
     print("Tarefa salva com sucesso!")
 
 def listar_tarefas_pendentes():
-    print(f"***** TAREFAS PENDENTES *****")
+    print(f"***** TAREFAS *****")
     print(lista_tarefas)
 
 def marcar_concluidas():
@@ -21,20 +21,14 @@ def marcar_concluidas():
 
 def remover_tarefa():
     tarefa_remover = str(input("Qual tarefa você deseja remover: ")).lower().strip()
-    tarefas_removidas.append(tarefa_remover)
-    lista_tarefas.remove(tarefa_remover)
 
     if (tarefa_remover not in lista_tarefas):
         print("Registro não encontrado!")
         print(lista_tarefas)
     else:
         print("Registro removido com sucesso!")
+        tarefas_removidas.append(tarefa_remover)
+        lista_tarefas.remove(tarefa_remover)
         print("***** LISTA ATUALIZADA *****")
         print(lista_tarefas)
 
-add_tarefa()
-add_tarefa()
-add_tarefa()
-listar_tarefas_pendentes()
-marcar_concluidas()
-listar_tarefas_pendentes()
