@@ -32,3 +32,35 @@ def remover_tarefa():
         print("***** LISTA ATUALIZADA *****")
         print(lista_tarefas)
 
+while True:
+    print("********** MENU TO-DO LIST - BFD **********")
+    print("1 - Adicionar tarefa")
+    print("2 - Listar tarefas pendentes")
+    print("3 - Concluir tarefa")
+    print("4 - Remover tarefa")
+    print("5 - Enumerar tarefas")
+    print("0 - Sair")
+
+    escolha = int(input("Escolha uma opção: "))
+
+    if (escolha < 0 or escolha > 5):
+        print("Escolha inválida, tente novamente.")
+        continue
+    if (escolha == 1):
+        add_tarefa()
+        continue
+    if (escolha == 2):
+        listar_tarefas_pendentes()
+        continue
+    if (escolha == 3):
+        marcar_concluidas()
+        continue
+    if (escolha == 4 ):
+        remover_tarefa()
+    if (escolha == 5):
+        for i,valor in enumerate(lista_tarefas):
+            print(f"{i} - {valor}.")
+        continue
+    if (escolha == 0):
+        print("Saindo...")
+        break
