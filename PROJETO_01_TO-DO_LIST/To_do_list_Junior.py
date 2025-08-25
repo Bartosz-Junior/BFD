@@ -146,4 +146,8 @@ try:
 except ValueError:
     print("Erro! Digite um número inteiro, ou 0 para sair.")
     print("Até a próxima!")
+
 # Fim do código do sistema de To-Do List
+except Exception as e:
+    print(f"Ocorreu um erro inesperado: {e}")
+    print("Até a próxima!")
