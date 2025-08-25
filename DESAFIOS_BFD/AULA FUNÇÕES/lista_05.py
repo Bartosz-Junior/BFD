@@ -62,4 +62,4 @@ def calculadora(a, b, operacao):
 # False caso contrário
 
 def eh_primo(n):
-    
+    pass
