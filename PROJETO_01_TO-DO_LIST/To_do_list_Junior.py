@@ -80,7 +80,7 @@ def marcar_concluidas():
 # Função para remover tarefa
 def remover_tarefa():
     listar_tarefas_pendentes()
-    if(len(lista_tarefas) != 0):
+    if (lista_tarefas):
         tarefa_remover = int(input("Qual tarefa você deseja remover: "))
         if (tarefa_remover >= 0 and tarefa_remover <= (len(lista_tarefas) - 1)):
             if (lista_tarefas[tarefa_remover] in lista_tarefas):
@@ -115,13 +115,14 @@ def listar_tarefas_removidas():
 
 # Funçã para mostrar a mensagem de não localizado
 def registro_não_localizado():
-    print("Registro não localizado!\n")
+    print("\nRegistro não localizado!\n")
 
 # Loop principal do sistema
 # Tratamento de exceções para entradas inválidas
-try:
-    # Estrutura de controle do menu com loop while
-    while True:
+
+# Estrutura de controle do menu com loop while
+while True:
+    try:
         print("****** MENU TO-DO LIST - BFD ******")
         print("*" * 35)
         print("1 - Adicionar tarefa")
@@ -137,38 +138,33 @@ try:
         # Entrada do usuário para escolha da opção
         escolha = int(input("Escolha uma opção: "))
 
-        # Estrutura condicional para chamar as funções com base na escolha do usuário
-        if (escolha < 0 or escolha > 7):
-            print("Escolha inválida, tente novamente.")
-        elif (escolha == 1):
-            add_tarefa()
-        elif (escolha == 2):
-            listar_tarefas_pendentes()
-        elif (escolha == 3):
-            marcar_concluidas()
-        elif (escolha == 4 ):
-            remover_tarefa()
-        elif (escolha == 5):
-            listar_tarefas_concluidas()
-        elif escolha == 6:
-            listar_tarefas_removidas()
-        elif (escolha == 7):
-            print("Listar todas as tarefas")
-            listar_tarefas_pendentes()
-            listar_tarefas_concluidas()
-            listar_tarefas_removidas()
-        elif (escolha == 0):
-            print("Saindo...")
-            break
+    except ValueError:
+        print("Erro! Digite um número inteiro, ou 0 para sair.\n")
+        continue
+
+    # Estrutura condicional para chamar as funções com base na escolha do usuário
+    if (escolha < 0 or escolha > 7):
+        print("Escolha inválida, tente novamente.")
+    elif (escolha == 1):
+        add_tarefa()
+    elif (escolha == 2):
+        listar_tarefas_pendentes()
+    elif (escolha == 3):
+        marcar_concluidas()
+    elif (escolha == 4 ):
+        remover_tarefa()
+    elif (escolha == 5):
+        listar_tarefas_concluidas()
+    elif escolha == 6:
+        listar_tarefas_removidas()
+    elif (escolha == 7):
+        print("Listar todas as tarefas")
+        listar_tarefas_pendentes()
+        listar_tarefas_concluidas()
+        listar_tarefas_removidas()
+    elif (escolha == 0):
+        print("Saindo...")
+        break
 
 # Tratamento de exceção para entradas que não são inteiros
-except ValueError:
-    print("Erro! Digite um número inteiro, ou 0 para sair.")
-    print("Até a próxima!")
-
-# Fim do código do sistema de To-Do List
-except Exception as e:
-    print(f"Ocorreu um erro inesperado: {e}")
-    print("Até a próxima!")
-
 # SE A LISTA ESTIVER VAZIA DÁ ERRO, VERIFICAR.
