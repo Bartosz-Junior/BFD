@@ -165,6 +165,3 @@ while True:
     elif (escolha == 0):
         print("Saindo...")
         break
-
-# Tratamento de exceção para entradas que não são inteiros
-# SE A LISTA ESTIVER VAZIA DÁ ERRO, VERIFICAR.
