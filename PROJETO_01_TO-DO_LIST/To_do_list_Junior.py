@@ -59,6 +59,7 @@ def listar_tarefas_pendentes():
             print(f"{VERDE}{i} - {valor}.{RESET}")
         print("\n")
     else:
+        print(f"{VERDE}\nTarefas Pendentes{RESET}")
         registro_não_localizado()
 
 # Função para marcar tarefas como concluídas
@@ -96,21 +97,23 @@ def remover_tarefa():
     
 # Função para listar tarefas concluídas
 def listar_tarefas_concluidas():
-    if(len(lista_tarefas_concluidas) != 0):
+    if(lista_tarefas_concluidas):
         print(f"{VERDE}TAREFAS CONCLUÍDAS{RESET}")
         for i, valor in enumerate(lista_tarefas_concluidas):
             print(f"{VERDE}{i} - {valor}.{RESET}")
         print("\n")
     else:
+        print(f"{VERDE}Tarefas Concluidas{RESET}")
         registro_não_localizado()
 
 # Função para listar tarefas removidas
 def listar_tarefas_removidas():
-    if(len(tarefas_removidas) != 0):
+    if(tarefas_removidas):
         print(F"{VERMELHO}TAREFAS REMOVIDAS{RESET}")
         for i, valor in enumerate(tarefas_removidas):
             print(f"{VERMELHO}{i} - {valor}.{RESET}\n")
     else:
+        print(f"{VERMELHO}Tarefas Removidas{RESET}")
         registro_não_localizado()
 
 # Funçã para mostrar a mensagem de não localizado
