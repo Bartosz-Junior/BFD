@@ -49,8 +49,7 @@ VERDE = '\033[32m'
 def add_tarefa():
     tarefa = str(input("Qual tarefa você deseja adicionar: ")).lower().strip()
     lista_tarefas.append(tarefa)
-    print("Tarefa salva com sucesso!")
-    print("\n")
+    print("Tarefa salva com sucesso!\n")
 
 # Função para listar tarefas pendentes
 def listar_tarefas_pendentes():
@@ -60,21 +59,19 @@ def listar_tarefas_pendentes():
             print(f"{VERDE}{i} - {valor}.{RESET}")
         print("\n")
     else:
-        print("Não existe nem uma tarefa pendente.")
-        print("\n")
+        registro_não_localizado()
 
 # Função para marcar tarefas como concluídas
 def marcar_concluidas():
     listar_tarefas_pendentes()
     if(len(lista_tarefas) != 0):
         concluir_tarefa = int(input("Qual tarefa você concluiu: "))
-        if (concluir_tarefa >= 0 and concluir_tarefa <= len(lista_tarefas)):
+        if (concluir_tarefa >= 0 and concluir_tarefa <= (len(lista_tarefas) -1)):
             if (lista_tarefas[concluir_tarefa] in lista_tarefas):
                 lista_tarefas_concluidas.append(lista_tarefas[concluir_tarefa])
                 lista_tarefas.remove(lista_tarefas[concluir_tarefa])
             else:
-                print("Registro não econtrado!")
-            print("\n")
+                registro_não_localizado()
         else: 
             print("Índice inválido!\n")
     else:
@@ -85,15 +82,13 @@ def remover_tarefa():
     listar_tarefas_pendentes()
     if(len(lista_tarefas) != 0):
         tarefa_remover = int(input("Qual tarefa você deseja remover: "))
-        if (tarefa_remover >= 0 and tarefa_remover <= len(lista_tarefas)):
+        if (tarefa_remover >= 0 and tarefa_remover <= (len(lista_tarefas) - 1)):
             if (lista_tarefas[tarefa_remover] in lista_tarefas):
                 tarefas_removidas.append(lista_tarefas[tarefa_remover])
                 lista_tarefas.remove(lista_tarefas[tarefa_remover])
-                print("Registro removido com sucesso!")
-                print("\n")
+                print("Registro removido com sucesso!\n")
             else:
-                print("Registro não localizado!")
-                print("\n")
+                registro_não_localizado()
         else:
             print("Índice inválido!\n")
     else:
@@ -107,19 +102,20 @@ def listar_tarefas_concluidas():
             print(f"{VERDE}{i} - {valor}.{RESET}")
         print("\n")
     else:
-        print("Não existe nem uma tarefa concluida.")
-        print("\n")
+        registro_não_localizado()
 
 # Função para listar tarefas removidas
 def listar_tarefas_removidas():
     if(len(tarefas_removidas) != 0):
         print(F"{VERMELHO}TAREFAS REMOVIDAS{RESET}")
         for i, valor in enumerate(tarefas_removidas):
-            print(f"{VERMELHO}{i} - {valor}.{RESET}")
-        print("\n")
+            print(f"{VERMELHO}{i} - {valor}.{RESET}\n")
     else:
-        print("Não existe nem uma tarefa removida.")
-        print("\n")
+        registro_não_localizado()
+
+# Funçã para mostrar a mensagem de não localizado
+def registro_não_localizado():
+    print("Registro não localizado!\n")
 
 # Loop principal do sistema
 # Tratamento de exceções para entradas inválidas
