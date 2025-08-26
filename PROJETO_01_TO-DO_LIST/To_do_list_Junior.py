@@ -68,12 +68,15 @@ def marcar_concluidas():
     listar_tarefas_pendentes()
     if(len(lista_tarefas) != 0):
         concluir_tarefa = int(input("Qual tarefa você concluiu: "))
-        if (lista_tarefas[concluir_tarefa] in lista_tarefas):
-            lista_tarefas_concluidas.append(lista_tarefas[concluir_tarefa])
-            lista_tarefas.remove(lista_tarefas[concluir_tarefa])
-        else:
-            print("Registro não econtrado!")
-        print("\n")
+        if (concluir_tarefa >= 0 and concluir_tarefa <= len(lista_tarefas)):
+            if (lista_tarefas[concluir_tarefa] in lista_tarefas):
+                lista_tarefas_concluidas.append(lista_tarefas[concluir_tarefa])
+                lista_tarefas.remove(lista_tarefas[concluir_tarefa])
+            else:
+                print("Registro não econtrado!")
+            print("\n")
+        else: 
+            print("Índice inválido!\n")
     else:
         pass
 
@@ -82,15 +85,17 @@ def remover_tarefa():
     listar_tarefas_pendentes()
     if(len(lista_tarefas) != 0):
         tarefa_remover = int(input("Qual tarefa você deseja remover: "))
-
-        if (lista_tarefas[tarefa_remover] in lista_tarefas):
-            tarefas_removidas.append(lista_tarefas[tarefa_remover])
-            lista_tarefas.remove(lista_tarefas[tarefa_remover])
-            print("Registro removido com sucesso!")
-            print("\n")
+        if (tarefa_remover >= 0 and tarefa_remover <= len(lista_tarefas)):
+            if (lista_tarefas[tarefa_remover] in lista_tarefas):
+                tarefas_removidas.append(lista_tarefas[tarefa_remover])
+                lista_tarefas.remove(lista_tarefas[tarefa_remover])
+                print("Registro removido com sucesso!")
+                print("\n")
+            else:
+                print("Registro não localizado!")
+                print("\n")
         else:
-            print("Registro não localizado!")
-            print("\n")
+            print("Índice inválido!\n")
     else:
         pass
     
