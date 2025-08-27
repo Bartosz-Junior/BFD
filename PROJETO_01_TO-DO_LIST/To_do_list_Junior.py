@@ -53,7 +53,7 @@ def add_tarefa():
 
 # Função para listar tarefas pendentes
 def listar_tarefas_pendentes():
-    if (len(lista_tarefas) != 0 ):
+    if (lista_tarefas):
         print(f"{VERDE} TAREFAS PENDENTES {RESET}")
         for i, valor in enumerate(lista_tarefas):
             print(f"{VERDE}{i} - {valor}.{RESET}")
@@ -65,7 +65,7 @@ def listar_tarefas_pendentes():
 # Função para marcar tarefas como concluídas
 def marcar_concluidas():
     listar_tarefas_pendentes()
-    if(len(lista_tarefas) != 0):
+    if(lista_tarefas):
         concluir_tarefa = int(input("Qual tarefa você concluiu: "))
         if (concluir_tarefa >= 0 and concluir_tarefa <= (len(lista_tarefas) -1)):
             if (lista_tarefas[concluir_tarefa] in lista_tarefas):
@@ -86,7 +86,7 @@ def remover_tarefa():
         if (tarefa_remover >= 0 and tarefa_remover <= (len(lista_tarefas) - 1)):
             if (lista_tarefas[tarefa_remover] in lista_tarefas):
                 tarefas_removidas.append(lista_tarefas[tarefa_remover])
-                lista_tarefas.remove(lista_tarefas[tarefa_remover])
+                lista_tarefas.pop(tarefa_remover)
                 print("Registro removido com sucesso!\n")
             else:
                 registro_não_localizado()
@@ -128,14 +128,14 @@ while True:
     try:
         print("****** MENU TO-DO LIST - BFD ******")
         print("*" * 35)
-        print("1 - Adicionar tarefa")
-        print("2 - Mostrar tarefas pendentes")
-        print("3 - Concluir tarefa")
-        print("4 - Remover tarefa")
-        print("5 - Mostrar tarefas concluídas")
-        print("6 - Mostrar tarefas removidas")
-        print("7 - Mostrar todas as tarefas")
-        print("0 - Sair")
+        print("[1] Adicionar tarefa")
+        print("[2] Mostrar tarefas pendentes")
+        print("[3] Concluir tarefa")
+        print("[4] Remover tarefa")
+        print("[5] Mostrar tarefas concluídas")
+        print("[6] Mostrar tarefas removidas")
+        print("[7] Mostrar todas as tarefas")
+        print("[0] Sair")
         print('*' * 35)
 
         # Entrada do usuário para escolha da opção
