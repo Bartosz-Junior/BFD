@@ -2,7 +2,7 @@
 # Desenvolvedor: Júnior
 # Data: 25/08/2025
 # Versão: 1.0
-
+#
 # Descrição: Sistema de lista de tarefas (To-Do List) simples para adicionar, listar, concluir e remover tarefas.
 # Funcionalidades adicionais incluem a visualização de tarefas concluídas e removidas.
 #
