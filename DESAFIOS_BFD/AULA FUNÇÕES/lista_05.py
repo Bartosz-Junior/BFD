@@ -78,6 +78,22 @@ def eh_primo(n):
 # Um arquivo main.py que importa e usa essas funções.
 
 import calculadora
+import interface
+
+'''while True:
+    interface.menu()
+    escolha = int(input("Escolha uma opção: "))
+    if escolha == 1:
+        calculadora.soma()
+    elif escolha == 2:
+        calculadora.subtracao()
+    elif escolha == 3:
+        calculadora.multiplicacao()
+    elif escolha == 4:
+        calculadora.divisao()
+    elif escolha == 0:
+        print("Saindo...")
+        break'''
 
 #10. Crie uma função palindromo(palavra) que retorne
 # True se a palavra for um palíndromo, e False caso contrário.
@@ -92,3 +108,38 @@ def palindromo(palavra):
 #- Tenha um módulo com funções matemáticas (soma, subtracao, multiplicacao, divisao).
 #- Tenha um módulo interface.py para interagir com o usuário.
 # - O main.py deve importar os módulos e executar o programa.
+
+'''while True:
+    interface.menu()
+    escolha = int(input("Escolha uma opção: "))
+    if escolha == 1:
+        calculadora.soma()
+    elif escolha == 2:
+        calculadora.subtracao()
+    elif escolha == 3:
+        calculadora.multiplicacao()
+    elif escolha == 4:
+        calculadora.divisao()
+    elif escolha == 0:
+        print("Saindo...")
+        break'''
+
+#12. Crie um sistema de login modularizado:
+#- Um módulo usuarios.py que armazene um dicionário de usuários e senhas.
+#- Um módulo autenticacao.py com funções registrar_usuario e login.
+#- Um main.py que permita ao usuário registrar e autenticar usuários.
+
+import autenticacao
+import usuarios
+
+while True:
+    autenticacao.menu()
+    escolha = int(input("Escolha uma opção: "))
+    if escolha == 1 :
+        autenticacao.login()
+    elif escolha == 2:
+        autenticacao.registrar_usuario()
+    elif escolha == 0:
+        print("Saindo...")
+        break
+print(usuarios.usuarios)

@@ -1,11 +1,23 @@
-def soma(a, b):
-    return a + b
+def soma():
+    print("***** SOMA *****")
+    a = float(input("1º valor: "))
+    b = float(input("2º valor: "))
+    print(a + b)
 
-def subtracao(a, b):
-    return a - b
+def subtracao():
+    print("***** SUBTRAÇÃO *****")
+    a = float(input("1º valor: "))
+    b = float(input("2º valor: "))
+    print(a - b)
 
-def multiplicacao(a, b):
-    return a * b
+def multiplicacao():
+    print("***** MULTIPLICAÇÃO *****")
+    a = float(input("1º valor: "))
+    b = float(input("2º valor: "))
+    print(a * b)
 
-def divisao(a, b):
-    return a / b
+def divisao():
+    print("***** DIVISÃO *****")
+    a = float(input("1º valor: "))
+    b = float(input("2º valor: "))
+    print(a / b)
