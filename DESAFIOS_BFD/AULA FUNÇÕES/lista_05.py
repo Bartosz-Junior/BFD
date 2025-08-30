@@ -73,5 +73,22 @@ def eh_primo(n):
             else:
                 return True
 
-print(eh_primo(17))
+#9. Modularize o código da questão 7:
+# Um arquivo calculadora.py com funções de operações.
+# Um arquivo main.py que importa e usa essas funções.
 
+import calculadora
+
+#10. Crie uma função palindromo(palavra) que retorne
+# True se a palavra for um palíndromo, e False caso contrário.
+
+def palindromo(palavra):
+    if palavra == palavra[::-1]:
+        return True
+    else:
+        return False
+
+#11. Implemente uma calculadora modularizada que:
+#- Tenha um módulo com funções matemáticas (soma, subtracao, multiplicacao, divisao).
+#- Tenha um módulo interface.py para interagir com o usuário.
+# - O main.py deve importar os módulos e executar o programa.
