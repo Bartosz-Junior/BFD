@@ -1,3 +1,5 @@
+import math
+
 #1. Crie uma função saudacao() que receba um nome como parâmetro e exiba "Olá, <nome>!".
 
 def saudacao(nome):
@@ -62,4 +64,14 @@ def calculadora(a, b, operacao):
 # False caso contrário
 
 def eh_primo(n):
-    pass
+    if n < 2:
+        return False
+    else:
+        for i in range(2, int(math.sqrt(n) + 1)):
+            if n % i == 0:
+                return False
+            else:
+                return True
+
+print(eh_primo(17))
+
