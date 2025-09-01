@@ -1,4 +1,5 @@
 import math
+import statistics
 
 #1. Crie uma função saudacao() que receba um nome como parâmetro e exiba "Olá, <nome>!".
 
@@ -130,16 +131,44 @@ def palindromo(palavra):
 #- Um main.py que permita ao usuário registrar e autenticar usuários.
 
 import autenticacao
-import usuarios
-
+'''
 while True:
-    autenticacao.menu()
-    escolha = int(input("Escolha uma opção: "))
-    if escolha == 1 :
-        autenticacao.login()
-    elif escolha == 2:
-        autenticacao.registrar_usuario()
-    elif escolha == 0:
-        print("Saindo...")
-        break
-print(usuarios.usuarios)
+    try:
+        autenticacao.menu()
+        escolha = int(input("Escolha uma opção: "))
+        if escolha == 1 :
+            autenticacao.login()
+        elif escolha == 2:
+            autenticacao.registrar_usuario()
+        elif escolha == 0:
+            print("Saindo...")
+            break
+    except ValueError:
+        print("Opção inválida!")
+'''
+
+#13. Implemente uma função fibonacci(n) que retorne os n primeiros números da sequência de Fibonacci.
+#  Depois, modularize em dois arquivos:
+#- funcoes.py (com a lógica).
+#- main.py (com input do usuário).
+'''
+import funcao_fibonacci
+
+funcao_fibonacci.fibonacci()
+'''
+
+#14. Desenvolva uma função estatística(lista) que retorne um dicionário com: média, mediana, 
+# maior e menor valor da lista.
+
+def estatistica(lista):
+    print(f"O maior valor é: {max(lista)}")
+    print(f"O menor valor é: {min(lista)}")
+    print(f"A mediana é {statistics.median(lista)}")
+    print(f"A média é {statistics.mean(lista)}")
+
+
+#15. Crie um programa modularizado chamado Mini-Sistema de Alunos:
+#- Módulo alunos.py: funções para adicionar aluno, remover e listar.
+#- Módulo notas.py: funções para lançar notas e calcular médias.
+#- main.py: menu interativo para o usuário acessar as opções.
+

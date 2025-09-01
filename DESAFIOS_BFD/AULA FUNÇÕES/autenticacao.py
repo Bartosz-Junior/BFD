@@ -11,7 +11,7 @@ def login():
     print("***** LOGIN *****\n")
     usuario_login = str(input("Login: "))
     usuario_senha = str(input("Senha: "))
-    if usuario_login in usuarios.usuarios and usuario_senha in usuarios.usuarios:
+    if usuario_login in usuarios.usuarios.keys() and usuario_senha in usuarios.usuarios.values():
         print("Sucesso!")
     else:
         print("Usuário ou senha incorreto.")
