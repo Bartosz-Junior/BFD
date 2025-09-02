@@ -5,7 +5,10 @@ def add_aluno():
     try:
         nome_aluno = str(input("Nome do aluno: "))
         matricula_aluno = int(input("Matricula aluno:"))
-        relacao_alunos.update({matricula_aluno: {"Nome": nome_aluno, "Nota_1" : 0, "Nota_2" : 0, "Nota_3" : 0, "Média" : 0}})
+        if matricula_aluno not in relacao_alunos.keys():
+            relacao_alunos.update({matricula_aluno: {"Nome": nome_aluno, "Nota_1" : 0, "Nota_2" : 0, "Nota_3" : 0, "Média" : 0}})
+        else:
+            print("Matricula já existente.")
     except ValueError:
         print("Valor inválido!")
 

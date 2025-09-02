@@ -5,7 +5,7 @@ def calcular_media():
     nota_1 = alunos.relacao_alunos[matricula]["Nota_1"]
     nota_2 = alunos.relacao_alunos[matricula]["Nota_2"]
     nota_3 = alunos.relacao_alunos[matricula]["Nota_3"]
-    alunos.relacao_alunos[matricula]["Média"] = ({"Média" : (nota_1 + nota_2 + nota_3) / 3})
+    alunos.relacao_alunos[matricula]["Média"] = ({(nota_1 + nota_2 + nota_3) / 3})
     
 
 def lancar_notas():
@@ -14,3 +14,13 @@ def lancar_notas():
     for i in range(1,4):
         nota = float(input(f"Informe a {i}ª nota: "))
         alunos.relacao_alunos[matricula][f"Nota_{i}"] = nota
+
+
+def menu():
+    print("***** SISTEMA DE ALUNOS - BFD 2025 *****")
+    print("[1] - Adicionar Aluno")
+    print("[2] - Remover Aluno")
+    print("[3] - Listar Alunos")
+    print("[4] - Lançar Nota")
+    print("[5] - Calcular Média")
+    print("[0] - Sair")
