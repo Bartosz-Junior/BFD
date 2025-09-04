@@ -103,13 +103,12 @@ class cliente(pedido):
     def fazer_pedido(self, produto, quantidade):
         return pedido(produto, quantidade)
 
-''' 
-joao = cliente("João")
+'''joao = cliente("João")
 pedido_de_joao = joao.fazer_pedido("Notebook", 2)
 print(f"Cliente: {joao.nome}")
 print(f"Produto: {pedido_de_joao.produto}")
-print(f"Quantidade: {pedido_de_joao.quantidade}")
-'''
+print(f"Quantidade: {pedido_de_joao.quantidade}")'''
+
 
 #7. Métodos Especiais
 #Crie uma classe `Ponto` com atributos `x` e `y`. Implemente o método `__str__` para
@@ -138,9 +137,10 @@ class ponto:
 
 
 class turma:
-    def __init__(self, nome):
-        self.nome = nome
+    def __init__(self):
         self.alunos = []
 
     def add_aluno(self, aluno):
         self.alunos.append(aluno)
+
+

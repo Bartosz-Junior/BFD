@@ -11,7 +11,13 @@ class ContaBancaria:
     def depositar(self):
         print("***** DEPOSITAR *****")
         valor_deposito = float(input("Valor do deposito: R$"))
-        self.saldo += valor_deposito
+        if self.saldo > 10000:
+            self.saldo += valor_deposito + (valor_deposito * 5/100)
+            print(f"Você recebeu 5% do valor depositado, por ter pelo menos 10 mil na conta.")
+        else:
+            self.saldo += valor_deposito
+            print("Deposito realizado com sucesso!")
+
 
     def sacar(self):
         print("***** SACAR *****\n")
