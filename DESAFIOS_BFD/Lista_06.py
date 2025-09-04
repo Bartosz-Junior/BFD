@@ -123,8 +123,9 @@ class ponto:
 
     def __str__(self):
         return self.x, self.y
-    
 
+    def __add__(self, x, y):
+        return self.x + x , self.y + y
 
 
 #8. Classe com Lista de Objetos
@@ -135,9 +136,11 @@ class ponto:
 #Use a classe `Aluno` da aula. Crie 3 alunos com notas [8,7,9], [6,5,7], [9,8,9], adicione-os
 #à turma e calcule a média geral.
 
+
 class turma:
-    def __init__(self, alunos = []):
-        self.alunos = alunos
+    def __init__(self, nome):
+        self.nome = nome
+        self.alunos = []
 
     def add_aluno(self, aluno):
-        self.alunos = aluno
+        self.alunos.append(aluno)
