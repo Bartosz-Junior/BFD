@@ -134,13 +134,55 @@ class ponto:
 #lista de notas)
 #Use a classe `Aluno` da aula. Crie 3 alunos com notas [8,7,9], [6,5,7], [9,8,9], adicione-os
 #à turma e calcule a média geral.
-
-
+'''
 class turma:
     def __init__(self):
         self.alunos = []
+        self.nota_aluno = []
+        self.media_aluno = []
+        self.media_turma = 0
 
-    def add_aluno(self, aluno):
+
+    def add_aluno(self, aluno, *notas):
         self.alunos.append(aluno)
+        self.nota_aluno.append(notas)
+        self.media_aluno.append(sum(notas)/len(notas))
 
 
+    def cal_media_turma(self):
+        if self.nota_aluno:
+            self.media_turma = sum(self.media_aluno)/len(self.media_aluno)
+        else:
+            print("A lista de médias está vazia!")
+
+    def status(self):
+        print(f"Alunos: {self.alunos}")
+        print(f"Média por aluno: {self.media_aluno}")
+        print(f"Média da turma: {self.media_turma}")
+
+turma_01 = turma()
+turma_01.add_aluno("Junior", 8,7,9)
+turma_01.add_aluno("Camila", 6,5,7)
+turma_01.add_aluno("Bartosz", 9,8,9)
+turma_01.cal_media_turma()
+turma_01.status()
+'''
+
+#9. Composição de Objetos
+#Crie uma classe `Motor` com atributo `potencia`. Crie uma classe `Carro` com atributos
+#`modelo` e `motor` (objeto da classe `Motor`). Adicione um método `exibir_detalhes` que
+#retorna `"Modelo: [modelo], Motor: [potencia] CV"`. Crie um motor de 150 CV, um carro
+#"Ferrari" com esse motor, e exiba os detalhes.
+
+class Motor:
+    def __init__(self):
+        pass
+
+
+class Carro:
+    def __init__(self, modelo, motor):
+        pass
+
+
+    def exibir_detalhes(self):
+        pass

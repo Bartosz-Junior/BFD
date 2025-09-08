@@ -1,3 +1,5 @@
+import ListaContaBancaria as lb
+
 class ContaBancaria:
     def __init__(self, titular, num_conta, saldo = 0, ):
         self.titular = titular
@@ -29,6 +31,10 @@ class ContaBancaria:
             print("Saldo insuficiente!")
             print(f"Seu saldo é de R${self.saldo}")
 
+
+lb.usuario_1.add_usuario()
+lb.usuario_1.add_usuario()
+lb.ListaContas()
 junior = ContaBancaria(str(input("Informe o nome do titular: ")), int(input("Informe a conta: ")))
 
 while True:
