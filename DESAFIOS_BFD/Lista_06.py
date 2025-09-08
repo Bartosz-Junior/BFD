@@ -179,7 +179,7 @@ class Motor:
         pass
 
 
-class Carro:
+class Carro(Motor):
     def __init__(self, modelo, motor):
         pass
 
