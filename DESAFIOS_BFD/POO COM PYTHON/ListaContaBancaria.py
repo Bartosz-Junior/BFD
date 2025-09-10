@@ -15,6 +15,4 @@ class ListaContas:
 usuario_1 = ListaContas()
 usuario_1.add_usuario()
 usuario_1.add_usuario()
-usuario_1.add_usuario()
-usuario_1.add_usuario()
 usuario_1.listar_usuario()

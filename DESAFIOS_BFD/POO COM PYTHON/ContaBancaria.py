@@ -60,3 +60,7 @@ while True:
 
     except ValueError:
         print("Opção inválida!")
+
+#3- EXPANDA O EXEMPLO DA CONTABANCARIA:
+#ADICIONE TRANSFERENCIA ENTRE CONTAS.
+#USE GETTERS PARA EXIBIR O SALDO.

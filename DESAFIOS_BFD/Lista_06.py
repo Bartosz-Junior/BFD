@@ -173,16 +173,139 @@ turma_01.status()
 #`modelo` e `motor` (objeto da classe `Motor`). Adicione um método `exibir_detalhes` que
 #retorna `"Modelo: [modelo], Motor: [potencia] CV"`. Crie um motor de 150 CV, um carro
 #"Ferrari" com esse motor, e exiba os detalhes.
-
+'''
 class Motor:
-    def __init__(self):
-        pass
+    def __init__(self, potencia):
+        self.potencia = potencia
+
 
 
 class Carro(Motor):
     def __init__(self, modelo, motor):
-        pass
-
+        self.modelo = modelo
+        self.motor = motor
 
     def exibir_detalhes(self):
-        pass
+        return f'Modelo: {self.modelo}, Motor: {self.motor} CV.'
+    
+
+motor_ferrari = Motor(potencia=150)
+Ferrari = Carro(modelo = "Ferrari", motor= motor_ferrari.potencia)
+print(Ferrari.exibir_detalhes())
+'''
+
+#Questão Desafio
+#10. Sistema de Biblioteca
+#Crie um sistema com as classes:
+#- Livro: atributos `titulo`, `autor`, `disponivel` (True por padrão)
+#- Biblioteca: atributo `livros` (lista de objetos `Livro`)
+#- Usuario: atributo `nome` e método `emprestar_livro(biblioteca, titulo)` que:
+#- Procura o livro na biblioteca
+#- Se disponível, altera `disponivel` para False e retorna `"Livro emprestado com
+#sucesso!"`
+#- Senão, retorna `"Livro indisponível!"`
+#Teste criando 3 livros, adicionando-os à biblioteca, e um usuário "Ana" emprestando um
+#livro disponível e um indisponível.
+
+class Livro:
+    def __init__(self, titulo, autor):
+        self.titulo = titulo
+        self.autor = autor
+        self.disponivel = True
+
+class Biblioteca:
+    def __init__(self):
+        self.livros = []
+
+    def add_livro(self, livro):
+        #ADICIONA LIVRO A LISTA LIVROS.
+        self.livros.append(livro)
+        print(f"Livro '{livro.titulo}' adicionado à biblioteca.")
+    
+    def listar_livros_disponiveis(self):
+        #LISTA TODOS OS LIVROS DA BIBLIOTECA
+        livros_disponiveis = []
+        for livro in self.livros:
+            if livro.disponivel:
+                livros_disponiveis.append(livro)
+
+        if livros_disponiveis:
+            print("\nLivros Disponiveis:")
+            for livro in livros_disponiveis:
+                print(f"-{livro.titulo} por {livro.autor}")
+        else:
+            print(f"\nNão há livros disponíveis no momento.")
+
+class Usuario:
+    def __init__(self, nome):
+        self.nome = nome
+        self.livros_emprestados = []
+    
+    def emprestar_livro(self,biblioteca, titulo_livro):
+        livro_encontrado = None
+
+        for livro in biblioteca.livros:
+            if livro.titulo.lower() == titulo_livro.lower():
+                livro_encontrado = livro
+                break
+
+        if livro_encontrado:
+            if livro_encontrado.disponivel:
+                livro_encontrado.disponivel = False
+                self.livros_emprestados.append(livro_encontrado)
+                print(f"{livro_encontrado.titulo} foi emprestado para {self.nome}")
+            else:
+                print(f"O livro {livro_encontrado.titulo} não está disponivel.")
+        else:
+            print(f"O livro {titulo_livro} não existe na biblioteca.")
+
+    def devolver_livro(self, biblioteca, titulo_livro):
+        livro_para_devolver = None
+        for livro in self.livros_emprestados:
+            if livro.titulo.lower() == titulo_livro.lower():
+                livro_para_devolver = livro
+                break
+
+        if livro_para_devolver:
+            livro_para_devolver.disponivel = True
+            self.livros_emprestados.remove(livro_para_devolver)
+            print(f"{livro_para_devolver.titulo} foi devolvido por {self.nome}.")
+        else:
+            print(f"Você não possui o livro {titulo_livro} para devolver.")
+
+
+# --- Exemplo de uso ---
+
+# Inicializa a biblioteca e adiciona alguns livros
+minha_biblioteca = Biblioteca()
+minha_biblioteca.add_livro(Livro("Python para data Science", "John Paul"))
+minha_biblioteca.add_livro(Livro("Python para leigos", "Jonh Paul"))
+minha_biblioteca.add_livro(Livro("O Senhor dos Anéis", "J.R.R. Tolkien"))
+
+# Cria um usuário
+usuario1 = Usuario("Junior")
+
+# Lista os livros disponíveis
+minha_biblioteca.listar_livros_disponiveis()
+
+# Usuário empresta um livro
+print("\n--- Ação de empréstimo ---")
+usuario1.emprestar_livro(minha_biblioteca, "1984")
+
+# Tenta emprestar o mesmo livro novamente
+print("\n--- Tentando emprestar livro já emprestado ---")
+usuario1.emprestar_livro(minha_biblioteca, "1984")
+
+# Tenta emprestar um livro que não existe
+print("\n--- Tentando emprestar livro inexistente ---")
+usuario1.emprestar_livro(minha_biblioteca, "O Pequeno Príncipe")
+
+# Lista os livros disponíveis após o empréstimo
+minha_biblioteca.listar_livros_disponiveis()
+
+# Usuário devolve o livro
+print("\n--- Ação de devolução ---")
+usuario1.devolver_livro(minha_biblioteca, "1984")
+
+# Lista os livros disponíveis após a devolução
+minha_biblioteca.listar_livros_disponiveis()
