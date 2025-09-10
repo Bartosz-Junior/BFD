@@ -3,7 +3,7 @@
 #dobro desse valor. Teste a função com o número 5.
 
 def dobrar(numero):
-    return numero * 2
+    return numero * 2   #função que retorna o dobre de um número
 
 #2. Classe Simples
 #Crie uma classe `Livro` com os atributos `titulo` e `autor`. Adicione um método
@@ -11,28 +11,28 @@ def dobrar(numero):
 #um livro com título "1984" e autor "George Orwell", e chame o método.
 
 class livro:
-    def __init__(self, titulo, autor):
-        self.titulo = titulo
-        self.autor = autor
+    def __init__(self, titulo, autor): # método inicializador da classe
+        self.titulo = titulo           #atributo
+        self.autor = autor             #atributo
 
-    def exibir_dados(self):
+    def exibir_dados(self):            # Método para exibir dados dos objetos instanciados
         print(f"Titulo: {self.titulo}, Autor: {self.autor}.")
 
 #3. Objetos e Atributos
 #Dada a classe `Carro` abaixo:
 
 class carro:
-    def __init__(self, modelo, cor):
+    def __init__(self, modelo, cor):   #Método inicializador da classe carro
         self.modelo = modelo
         self.cor = cor
 
 #Crie um objeto `meu_carro` com modelo "Fusca" e cor "Azul". Em seguida, altere a cor
 #para "Vermelho" e imprima o novo valor do atributo `cor`.
 
-'''meu_carro = carro("Fusca", "Azul")
+meu_carro = carro("Fusca", "Azul")
 print(meu_carro.cor)
 meu_carro.cor = "Vermelho"
-print(meu_carro.cor)'''
+print(meu_carro.cor)
 
 #4. Funções com Múltiplos Parâmetros
 #Escreva uma função `calcular_imc` que recebe peso (kg) e altura (m) e retorna o IMC
@@ -43,7 +43,7 @@ print(meu_carro.cor)'''
 #- ≥ 30: retorne "Obesidade"
 #Teste com peso 70 kg e altura 1.75 m.
 
-def calcular_imc(peso, altura):
+def calcular_imc(peso, altura):     #Função para calcular IMC de acordo com questão.
     imc = peso / (altura ** 2)
     if imc < 18.5:
         print("Abaixo do peso.")
@@ -60,30 +60,30 @@ def calcular_imc(peso, altura):
 #- `sacar(valor)`: subtrai o valor do saldo (apenas se houver saldo suficiente)
 #Crie uma conta, deposite 100, saque 30 e imprima o saldo final.
 
-class conta_bancaria:
+class conta_bancaria:                   #Método inicializador da classe conta bancaria
     def __init__(self, saldo = 0):
         self.saldo = saldo
 
-    def depositar(self, valor):
+    def depositar(self, valor):         #Método para depositar dinheiro na conta
         if valor <= 0:
             print("O valor a ser depositado deve ser maior que zero.")
         elif valor > 0:
             self.saldo += valor
             print("Deposito realizado com sucesso.")
     
-    def sacar(self, valor):
+    def sacar(self, valor):              #Método para sacar dinheiro da conta
         if valor > self.saldo:
             print("Saldo insuficiente, tente um valor menor.")
         elif valor <= self.saldo:
             self.saldo -= valor
             print("Saque realizado com sucesso.")
 
-'''conta_01 = conta_bancaria()
+conta_01 = conta_bancaria()
 print(conta_01.saldo)
 conta_01.depositar(100)
 print(conta_01.saldo)
 conta_01.sacar(30)
-print(conta_01.saldo)'''
+print(conta_01.saldo)
 
 
 #6. Interação entre Objetos
@@ -92,22 +92,22 @@ print(conta_01.saldo)'''
 #um objeto `Pedido`. Faça um cliente "João" fazer um pedido de "Notebook" com quantidade 2.
 
 class pedido:
-    def __init__(self, produto, quantidade):
+    def __init__(self, produto, quantidade):        #Método inicializador da classe pedido
         self.produto = produto
         self.quantidade = quantidade
 
-class cliente(pedido):
+class cliente(pedido):                              #Classe cliente que interage com a classe pedido
     def __init__(self, nome):
         self.nome = nome
 
-    def fazer_pedido(self, produto, quantidade):
+    def fazer_pedido(self, produto, quantidade):    #Método fazer_pedido que recebe os dados do pedido.
         return pedido(produto, quantidade)
 
-'''joao = cliente("João")
+joao = cliente("João")
 pedido_de_joao = joao.fazer_pedido("Notebook", 2)
 print(f"Cliente: {joao.nome}")
 print(f"Produto: {pedido_de_joao.produto}")
-print(f"Quantidade: {pedido_de_joao.quantidade}")'''
+print(f"Quantidade: {pedido_de_joao.quantidade}")
 
 
 #7. Métodos Especiais
@@ -116,14 +116,14 @@ print(f"Quantidade: {pedido_de_joao.quantidade}")'''
 #coordenadas). Teste criando dois pontos (1, 2) e (3, 4), somando-os e imprimindo o resultado.
 
 class ponto:
-    def __init__(self, x, y):
-        self.x = x
+    def __init__(self, x, y):       #Método inicializador da classe ponto que recebe dois pontos em um sistema
+        self.x = x                  #de coordenandas cartesianas
         self.y = y
 
     def __str__(self):
         return self.x, self.y
 
-    def __add__(self, x, y):
+    def __add__(self, x, y):            #Método que soma os valores do pontos anteriores com novos.
         return self.x + x , self.y + y
 
 
@@ -134,65 +134,65 @@ class ponto:
 #lista de notas)
 #Use a classe `Aluno` da aula. Crie 3 alunos com notas [8,7,9], [6,5,7], [9,8,9], adicione-os
 #à turma e calcule a média geral.
-'''
+
 class turma:
-    def __init__(self):
-        self.alunos = []
-        self.nota_aluno = []
-        self.media_aluno = []
-        self.media_turma = 0
+    def __init__(self):         #Método inicializador da classe turma
+        self.alunos = []        #lista de alunos vazia
+        self.nota_aluno = []    #lista de notas
+        self.media_aluno = []   #lista de media por aluno
+        self.media_turma = 0    #média da turma
 
 
-    def add_aluno(self, aluno, *notas):
-        self.alunos.append(aluno)
-        self.nota_aluno.append(notas)
-        self.media_aluno.append(sum(notas)/len(notas))
+    def add_aluno(self, aluno, *notas):     #função para adicionar aluno a turma com as notas
+        self.alunos.append(aluno)           #append para adicionar o aluno na lista de alunos
+        self.nota_aluno.append(notas)       #append para adicionar as notas na lista de notas
+        self.media_aluno.append(sum(notas)/len(notas))  #calcula a media do aluno e dá um append
 
 
-    def cal_media_turma(self):
+    def cal_media_turma(self): #calcula a média da turma
         if self.nota_aluno:
             self.media_turma = sum(self.media_aluno)/len(self.media_aluno)
         else:
             print("A lista de médias está vazia!")
 
-    def status(self):
+    def status(self):       #imprimi os detalhes da turma como lista de alunos, media por aluno e media da turma
         print(f"Alunos: {self.alunos}")
         print(f"Média por aluno: {self.media_aluno}")
         print(f"Média da turma: {self.media_turma}")
 
-turma_01 = turma()
-turma_01.add_aluno("Junior", 8,7,9)
-turma_01.add_aluno("Camila", 6,5,7)
-turma_01.add_aluno("Bartosz", 9,8,9)
-turma_01.cal_media_turma()
+turma_01 = turma()      #instancia da classe turma com uma nova turma
+turma_01.add_aluno("Junior", 8,7,9) #adiciona um aluno a turma com suas notas
+turma_01.add_aluno("Camila", 6,5,7) #adiciona um aluno a turma com suas notas
+turma_01.add_aluno("Bartosz", 9,8,9) #adiciona um aluno a turma com suas notas
+turma_01.cal_media_turma()      #calcula  média da turma
 turma_01.status()
-'''
+
 
 #9. Composição de Objetos
 #Crie uma classe `Motor` com atributo `potencia`. Crie uma classe `Carro` com atributos
 #`modelo` e `motor` (objeto da classe `Motor`). Adicione um método `exibir_detalhes` que
 #retorna `"Modelo: [modelo], Motor: [potencia] CV"`. Crie um motor de 150 CV, um carro
 #"Ferrari" com esse motor, e exiba os detalhes.
-'''
-class Motor:
-    def __init__(self, potencia):
+
+class Motor:        
+    def __init__(self, potencia):   #metodo inicializador da classe motor
         self.potencia = potencia
 
 
 
 class Carro(Motor):
-    def __init__(self, modelo, motor):
+    def __init__(self, modelo, motor):      #metodo inicializador da classe carro que herda de motor
         self.modelo = modelo
         self.motor = motor
 
-    def exibir_detalhes(self):
+    def exibir_detalhes(self):              #exibi os detalhes do carro.
         return f'Modelo: {self.modelo}, Motor: {self.motor} CV.'
     
 
 motor_ferrari = Motor(potencia=150)
 Ferrari = Carro(modelo = "Ferrari", motor= motor_ferrari.potencia)
 print(Ferrari.exibir_detalhes())
-'''
+
 
 #Questão Desafio
 #10. Sistema de Biblioteca
@@ -208,28 +208,28 @@ print(Ferrari.exibir_detalhes())
 #livro disponível e um indisponível.
 
 class Livro:
-    def __init__(self, titulo, autor):
+    def __init__(self, titulo, autor):          # Método inicializador da classe Livro
         self.titulo = titulo
         self.autor = autor
         self.disponivel = True
 
-class Biblioteca:
-    def __init__(self):
+class Biblioteca:   
+    def __init__(self):                         #Método inicializador da classe Biblioteca
         self.livros = []
 
-    def add_livro(self, livro):
+    def add_livro(self, livro):                 #funcçã para adicionar livro na lista livro da classe biblioteca
         #ADICIONA LIVRO A LISTA LIVROS.
         self.livros.append(livro)
         print(f"Livro '{livro.titulo}' adicionado à biblioteca.")
     
-    def listar_livros_disponiveis(self):
+    def listar_livros_disponiveis(self):        #Função para listar todos os livros disponiveis na lista livros
         #LISTA TODOS OS LIVROS DA BIBLIOTECA
         livros_disponiveis = []
-        for livro in self.livros:
+        for livro in self.livros:           #Itera sobre a lista livros e se disponivel adicionar a lista disponiveis
             if livro.disponivel:
                 livros_disponiveis.append(livro)
 
-        if livros_disponiveis:
+        if livros_disponiveis:              #itera sobre a lista de disponiveis e retorna a lista.
             print("\nLivros Disponiveis:")
             for livro in livros_disponiveis:
                 print(f"-{livro.titulo} por {livro.autor}")
@@ -241,15 +241,15 @@ class Usuario:
         self.nome = nome
         self.livros_emprestados = []
     
-    def emprestar_livro(self,biblioteca, titulo_livro):
-        livro_encontrado = None
+    def emprestar_livro(self,biblioteca, titulo_livro):         #função para pegar livro emprestado
+        livro_encontrado = None     #Lista de livros encontrados 
 
-        for livro in biblioteca.livros:
+        for livro in biblioteca.livros:         #Verifica se o livro foi encontrado na lista de livros da biblioteca
             if livro.titulo.lower() == titulo_livro.lower():
                 livro_encontrado = livro
                 break
 
-        if livro_encontrado:
+        if livro_encontrado:        #Se o livro for encontrado e estiver disponivel será colocado como indisponivel e taxado como emprestado
             if livro_encontrado.disponivel:
                 livro_encontrado.disponivel = False
                 self.livros_emprestados.append(livro_encontrado)
@@ -259,7 +259,7 @@ class Usuario:
         else:
             print(f"O livro {titulo_livro} não existe na biblioteca.")
 
-    def devolver_livro(self, biblioteca, titulo_livro):
+    def devolver_livro(self, biblioteca, titulo_livro):     #Função para devolver livro a biblioteca e coloca-lo como disponivel novamente.
         livro_para_devolver = None
         for livro in self.livros_emprestados:
             if livro.titulo.lower() == titulo_livro.lower():
@@ -309,3 +309,6 @@ usuario1.devolver_livro(minha_biblioteca, "1984")
 
 # Lista os livros disponíveis após a devolução
 minha_biblioteca.listar_livros_disponiveis()
+
+
+#NESTA ULTIMA QUESTÃO EU USEI O GEMINI DO GOOGLE PARA CONSEGUIR RESOLVER O PROBLEMA, NÃO CONSEGUI FAZER SOZINHO
