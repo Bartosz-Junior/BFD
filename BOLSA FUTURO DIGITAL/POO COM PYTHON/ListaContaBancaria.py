@@ -1,14 +1,13 @@
+import ContaBancaria
+
 class ListaContas:
     def __init__(self):
-        self.usuarios = []
+        self.usuarios = {}
 
-    def add_usuario(self):
-        print("_____ CADASTRO DE USUÁRIO _____")
-        usuario = str(input("Nome de usuário: "))
-        senha = str(input("Cadastre uma senha: "))
-        self.usuarios.append({usuario: senha, "saldo" : 0})
+    def add_usuario(self, ContaBancaria):
+        self.usuarios.update({"Titular:" : ContaBancaria.titular, "Conta" : ContaBancaria.num_conta, "Saldo" : ContaBancaria.saldo})
 
     def listar_usuario(self):
-        for i,v in enumerate(self.usuarios):
+        for i,v in self.usuarios.items():
             print(i,v)
 
