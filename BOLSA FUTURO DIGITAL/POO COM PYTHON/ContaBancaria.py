@@ -61,10 +61,17 @@ class ContaBancaria:
         print("*****   TRANSFERIR PARA:   *****\n")
         minha_lista.listar_usuario()
         conta_recebe = int(input("Informe o número da conta:"))
+        valor_transferencia = float(input("Informe o valor da trasnsferencia: R$"))
         achou_conta = False
-        for num_conta in minha_lista.usuarios:
+        for dicionario_conta in minha_lista.usuarios:
+            if dicionario_conta['Conta'] == conta_recebe:
+                achou_conta = True
+        if achou_conta and self.saldo >= valor_transferencia:
+            self.saldo -= valor_transferencia
             
-
+            #falta encontrar um metodo para acrescentar o valor na conta do outro usuario
+        else:
+            print("Saldo Insuficiente!")
 
 
 minha_lista = ListaContas()
